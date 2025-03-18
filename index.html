@@ -293,23 +293,12 @@
       position: relative;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
     
     .about-img img {
       width: 100%;
       height: auto;
       display: block;
-      transition: var(--transition);
-    }
-    
-    .about-img::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom right, var(--accent), transparent);
-      opacity: 0.5;
-      z-index: 1;
       transition: var(--transition);
     }
     
@@ -480,7 +469,7 @@
       position: absolute;
       top: -2rem;
       left: -1rem;
-      color: rgba(94, 23, 235, 0.2);
+      color: #5466c03c;
       font-family: Georgia, serif;
     }
     
@@ -815,7 +804,7 @@
   <section id="home" class="hero">
     <div class="hero-content">
       <h1 class="animate-fadeIn">Hello, I'm</h1>
-      <img src="vaclav.png" style="width: 70%;"></img>
+      <h1><img src="vaclav.png" style="width: 70%;"></img></h1>
       <p class="animate-fadeIn" style="animation-delay: 0.3s;">Full-Stack Developer & Designer crafting elegant solutions to complex problems</p>
       <a href="#contact" class="cta-btn animate-fadeIn" style="animation-delay: 0.6s;">Get In Touch</a>
       <a href="#contact" class="cv-btn animate-fadeIn" style="animation-delay: 0.6s;">Download CV</a>
@@ -837,7 +826,7 @@
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 0.4s;">
         <div class="skill-icon">💾</div>
-        <h3>MongoDB & SQL</h3>
+        <h3>Django & PostgresSQL</h3>
         <p>Designing efficient database schemas and optimized queries for both NoSQL and relational databases.</p>
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 0.6s;">
@@ -846,14 +835,14 @@
         <p>Creating responsive, pixel-perfect designs with modern CSS frameworks and preprocessors.</p>
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 0.8s;">
-        <div class="skill-icon">📱</div>
-        <h3>React Native</h3>
-        <p>Building cross-platform mobile applications with native performance using JavaScript.</p>
+        <div class="skill-icon">🛒</div>
+        <h3>Wordpress & WooCommerce</h3>
+        <p>Building modern cross-platform e-commerce web pages with a content management system.</p>
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 1s;">
         <div class="skill-icon">🔄</div>
-        <h3>CI/CD & DevOps</h3>
-        <p>Implementing automated workflows with Docker, GitHub Actions, and cloud services.</p>
+        <h3>Photoshop & Illustrator</h3>
+        <p>Desinging ambtitious concepts and mockups for a clearer development path.</p>
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 1.2s;">
         <div class="skill-icon">🧪</div>
@@ -871,7 +860,7 @@
   <section id="about">
     <div class="about">
       <div class="about-img animate-slideLeft">
-        <img src="/api/placeholder/400/320" alt="Václav Levý">
+        <img src="osobni.png" alt="Václav Levý">
       </div>
       <div class="about-content animate-slideRight">
         <h2 class="section-title">About Me</h2>
@@ -881,15 +870,15 @@
         
         <div class="stats">
           <div class="stat-item">
-            <div class="stat-number" id="years-counter">6+</div>
+            <div class="stat-number" id="years-counter">4+</div>
             <div class="stat-label">Years Experience</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" id="projects-counter">50+</div>
+            <div class="stat-number" id="projects-counter">100+</div>
             <div class="stat-label">Projects Completed</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" id="clients-counter">35+</div>
+            <div class="stat-number" id="clients-counter">3+</div>
             <div class="stat-label">Happy Clients</div>
           </div>
         </div>
@@ -954,17 +943,16 @@
   </section>
 
   <section id="testimonials" class="testimonials">
-    <h2 class="section-title">What Clients Say</h2>
+    <h2 class="section-title">Testimonials</h2>
     <div class="testimonials-container" id="testimonials-slider">
       <div class="testimonial">
         <div class="testimonial-content">
           Václav exceeded all our expectations. His technical expertise combined with his eye for design transformed our concept into a product that our users love. He was communicative throughout the entire process and delivered exactly what we needed.
         </div>
         <div class="testimonial-author">
-          <img src="/api/placeholder/400/320" alt="Alex Mitchell">
           <div class="author-info">
-            <h4>Alex Mitchell</h4>
-            <p>CTO, InnovateTech</p>
+            <h4>Vladimír Pfeffer</h4>
+            <p>CEO, Kupahrej.cz</p>
           </div>
         </div>
       </div>
@@ -974,10 +962,9 @@
           Václav has a rare combination of technical expertise and creative vision. He not only implemented our requirements perfectly but also suggested improvements we hadn't considered. His work on our e-commerce platform significantly improved our conversion rates.
         </div>
         <div class="testimonial-author">
-          <img src="/api/placeholder/400/320" alt="Michael Torres">
           <div class="author-info">
-            <h4>Michael Torres</h4>
-            <p>Director of Digital, ShopEase</p>
+            <h4>Josef Sedlák</h4>
+            <p>CEO, Best Ostrava</p>
           </div>
         </div>
       </div>
@@ -995,11 +982,7 @@
         <h3>Let's work together</h3>
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
-          <div class="contact-text">xbrudda.osas@example.com</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-text">+1 (555) 123-4567</div>
+          <div class="contact-text" ><a href="mailto:xbrudda.osas@gmail.com">xbrudda.osas@gmail.com</a></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📍</div>
@@ -1050,6 +1033,7 @@
   </footer>
   
   <script>
+    
     // Scroll header effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
