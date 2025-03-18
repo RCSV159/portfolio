@@ -48,10 +48,10 @@
     }
     
     .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
+      width: 5rem;
       color: var(--text);
       position: relative;
+      margin: 1rem 1rem -3rem 1rem;
     }
     
     .logo::after {
@@ -561,9 +561,11 @@
     }
     
     .contact-text {
-      color: var(--text-secondary);
+      color: var(--text) !important;
     }
-    
+    a {
+      color: inherit;
+    }
     .contact-form {
       background: var(--card-bg);
       padding: 2rem;
@@ -789,7 +791,7 @@
 </head>
 <body>
   <header id="header">
-    <div class="logo">VL</div>
+    <img src="favicon.png" class="logo"></img>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -804,7 +806,7 @@
   <section id="home" class="hero">
     <div class="hero-content">
       <h1 class="animate-fadeIn">Hello, I'm</h1>
-      <h1><img src="vaclav.png" style="width: 70%;"></img></h1>
+      <h1><img src="vaclav.png" style="width: 70%; ;"></img></h1>
       <p class="animate-fadeIn" style="animation-delay: 0.3s;">Full-Stack Developer & Designer crafting elegant solutions to complex problems</p>
       <a href="#contact" class="cta-btn animate-fadeIn" style="animation-delay: 0.6s;">Get In Touch</a>
       <a href="#contact" class="cv-btn animate-fadeIn" style="animation-delay: 0.6s;">Download CV</a>
@@ -916,9 +918,8 @@
             <span class="project-tag">MDB</span>
             <span class="project-tag">PostgreSQL</span>
           </div>
-          <p class="project-desc">Fully deployed habit tracker created to be the magnum opus of my coding course. However the free trial italian domain expired.</p>
+          <p class="project-desc">Fully deployed habit tracker created to be the pinnacle of my coding course. However the free trial italian domain expired.</p>
           <div class="project-links">
-            <a href="#" class="project-link">View Demo</a>
             <a href="#" class="project-link">GitHub</a>
           </div>
         </div>
@@ -1033,7 +1034,7 @@
   </footer>
   
   <script>
-    
+
     // Scroll header effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -1042,7 +1043,7 @@
       } else {
         header.classList.remove('scrolled');
       }
-    });
+    }); 
     
     // Animated counter
     function animateCounters() {

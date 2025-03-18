@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "three": "^0.174.0"
+    "jquery": "^3.7.1",
+    "jsdom": "^26.0.0",
+    "three": "^0.174.0",
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {
     "vite": "^6.2.2"
