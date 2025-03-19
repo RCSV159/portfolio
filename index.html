@@ -32,7 +32,7 @@
     }
     
     header {
-      padding: 2rem;
+      padding: 2rem 3rem 2rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -78,10 +78,11 @@
     nav a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-weight: 500;
       transition: var(--transition);
       padding: 0.5rem;
       position: relative;
+      font-family: 'UnifrakturCook';
+      font-size: 1.3rem;
     }
     
     nav a::after {
@@ -795,7 +796,7 @@
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#skills">Experience</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -995,7 +996,7 @@
         </div>
       </div>
       
-      <form class="contact-form animate-slideRight">
+      <form class="contact-form animate-slideRight" action="mailto:xbrudda.osas@gmail.com" method="post">
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" id="name" class="form-input" required>
@@ -1008,7 +1009,7 @@
           <label for="message">Message</label>
           <textarea id="message" class="form-input" required></textarea>
         </div>
-        <button type="submit" class="submit-btn">Send Message</button>
+        <button type="submit" class="submit-btn" name="submit" value="Submit">Send Message</button>
       </form>
     </div>
   </section>
@@ -1173,7 +1174,8 @@
         submitBtn.textContent = 'Sending...';
         
         setTimeout(() => {
-          submitBtn.textContent = 'Message Sent!';
+          submitBtn.textContent = 'Not yet implemented!';
+          window.location.href = "mailto:studiopvppro@gmail.org";
           contactForm.reset();
           
           setTimeout(() => {
