@@ -3,796 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Václav Levý - Full-Stack Developer & Graphic Designer crafting elegant solutions to complex problems">
   <title>Václav Levý | Developer & Designer</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
-    :root {
-      --bg-primary: #0a0a0a;
-      --bg-secondary: #111111;
-      --accent: #5466c0;
-      --accent-light: #6B79C1;
-      --text: #f8f8f8;
-      --text-secondary: #a0a0a0;
-      --card-bg: #161616;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    }
-    
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    
-    header {
-      padding: 2rem 3rem 2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      z-index: 100;
-      background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 70%); 
-      transition: var(--transition);
-    }
-    
-    header.scrolled {
-      padding: 1rem 2rem;
-    }
-    
-    .logo {
-      width: 5rem;
-      color: var(--text);
-      position: relative;
-      margin: 1rem 1rem -3rem 1rem;
-    }
-    
-    .logo::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 50%;
-      height: 2px;
-      background: var(--accent);
-      transition: var(--transition);
-    }
-    
-    .logo:hover::after {
-      width: 100%;
-    }
-    
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-    
-    nav a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition);
-      padding: 0.5rem;
-      position: relative;
-      font-family: 'UnifrakturCook';
-      font-size: 1.3rem;
-    }
-    
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      left: 0;
-      bottom: 0;
-      transition: var(--transition);
-    }
-    
-    nav a:hover {
-      color: var(--text);
-    }
-    
-    nav a:hover::after {
-      width: 100%;
-    }
-    
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 0 10%;
-      position: relative;
-    }
-    
-    .hero-content {
-      text-align: center;
-    }
-    
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 400;
-      margin-bottom: 1rem;
-      line-height: 0.1;
-      font-family: 'UnifrakturCook';
-    }
-    
-    .hero h1 span {
-      color: var(--accent);
-      position: relative;
-    }
-    
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-      animation: fadeIn 1s ease-in forwards;
-    }
-    
-    .cta-btn {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      margin: 0 0.5rem 0 0.5rem;
-      background: var(--accent);
-      color: var(--text);
-      border: none;
-      border-radius: 4px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .cv-btn {
-      display: inline-block;
-      padding: 0.7rem 1.9rem;
-      margin: 0 0.5rem 0 0.5rem;
-      color: var(--text);
-      border: 2px var(--accent) solid;
-      border-radius: 4px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .cta-btn:hover, .cv-btn:hover {
-      background: var(--accent-light);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(94, 23, 235, 0.3);
-    }
-    
-    .cta-btn::after, .cv-btn::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 200%;
-      height: 200%;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 0;
-      transition: transform 0.6s, opacity 0.4s;
-    }
-    
-    .cta-btn:active::after {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-      transition: 0s;
-    }
-    
-    section {
-      padding: 6rem 10%;
-    }
-    
-    .section-title {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 3rem;
-      position: relative;
-      display: inline-block;
-      font-family: 'UnifrakturCook';
-    }
-    
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 3px;
-      background: var(--accent);
-      left: 0;
-      bottom: -10px;
-      transition: width 0.8s ease-in-out;
-    }
-
-    .section-title.visible:after {
-      width: 50%;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    
-    .skill-card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-    }
-    
-    .skill-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      border-color: var(--accent);
-    }
-    
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 5px;
-      background: var(--accent);
-      top: 0;
-      left: 0;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: var(--transition);
-    }
-    
-    .skill-card:hover::before {
-      transform: scaleX(1);
-    }
-    
-    .skill-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
-    
-    .skill-card .skill-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: var(--accent);
-      transition: var(--transition);
-    }
-    
-    .skill-card:hover .skill-icon {
-      transform: scale(1.1);
-    }
-    
-    .skill-card p {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-    
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    
-    .about-img {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    
-    .about-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: var(--transition);
-    }
-    
-    .about-img:hover img {
-      transform: scale(1.05);
-    }
-    
-    .about-img:hover::before {
-      opacity: 0.7;
-    }
-    
-    .about-content h2 {
-      margin-bottom: 1.5rem;
-    }
-    
-    .about-content p {
-      margin-bottom: 1rem;
-      color: var(--text-secondary);
-    }
-    
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin-top: 2rem;
-      gap: 1rem;
-    }
-    
-    .stat-item {
-      text-align: center;
-      padding: 1.5rem;
-      background: var(--card-bg);
-      border-radius: 8px;
-      transition: var(--transition);
-    }
-    
-    .stat-item:hover {
-      transform: translateY(-5px);
-      border-left: 3px solid var(--accent);
-    }
-    
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
-    
-    .projects {
-      background-color: var(--bg-secondary);
-    }
-    
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-    
-    .project-card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: var(--transition);
-      position: relative;
-    }
-    
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    }
-    
-    .project-img {
-      height: 200px;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .project-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition);
-    }
-    
-    .project-card:hover .project-img img {
-      transform: scale(1.1);
-    }
-    
-    .project-content {
-      padding: 1.5rem;
-    }
-    
-    .project-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .project-tag {
-      padding: 0.3rem 0.8rem;
-      background: rgba(94, 23, 235, 0.1);
-      border-radius: 20px;
-      font-size: 0.8rem;
-      color: var(--accent);
-    }
-    
-    .project-desc {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .project-links {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .project-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-    
-    .project-link:hover {
-      color: var(--accent-light);
-    }
-    
-    .testimonials {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .testimonials-container {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    
-    .testimonial {
-      min-width: 100%;
-      padding: 2rem;
-      background: var(--card-bg);
-      border-radius: 8px;
-      margin: 0 1rem;
-    }
-    
-    .testimonial-content {
-      font-style: italic;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    
-    .testimonial-content::before {
-      content: '"';
-      font-size: 4rem;
-      position: absolute;
-      top: -2rem;
-      left: -1rem;
-      color: #5466c03c;
-      font-family: Georgia, serif;
-    }
-    
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .testimonial-author img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    
-    .author-info h4 {
-      font-size: 1rem;
-      margin-bottom: 0.2rem;
-    }
-    
-    .author-info p {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-    }
-    
-    .testimonial-controls {
-      display: flex;
-      justify-content: center;
-      margin-top: 2rem;
-      gap: 1rem;
-    }
-    
-    .testimonial-btn {
-      background: var(--card-bg);
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      color: var(--text);
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .testimonial-btn:hover {
-      background: var(--accent);
-      transform: scale(1.1);
-    }
-    
-    .contact {
-      position: relative;
-    }
-    
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-    }
-    
-    .contact-info h3 {
-      margin-bottom: 2rem;
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      transition: var(--transition);
-    }
-    
-    .contact-item:hover {
-      transform: translateX(10px);
-    }
-    
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--card-bg);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: 1.2rem;
-    }
-    
-    .contact-text {
-      color: var(--text) !important;
-    }
-    a {
-      color: inherit;
-    }
-    .contact-form {
-      background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 8px;
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text-secondary);
-    }
-    
-    .form-input {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 4px;
-      color: var(--text);
-      transition: var(--transition);
-    }
-    
-    .form-input:focus {
-      border-color: var(--accent);
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(94, 23, 235, 0.2);
-    }
-    
-    textarea.form-input {
-      resize: vertical;
-      min-height: 150px;
-    }
-    
-    .submit-btn {
-      width: 100%;
-      padding: 1rem;
-      background: var(--accent);
-      color: var(--text);
-      border: none;
-      border-radius: 4px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    
-    .submit-btn:hover {
-      background: var(--accent-light);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(94, 23, 235, 0.3);
-    }
-    
-    footer {
-      background: var(--card-bg);
-      padding: 3rem 10%;
-      text-align: center;
-    }
-    
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    
-    .social-link {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    
-    .social-link:hover {
-      background: var(--accent);
-      transform: translateY(-5px);
-    }
-    
-    .footer-text {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-100px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(100px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-    
-    .animate-fadeIn {
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-    
-    .animate-slideLeft {
-      opacity: 0;
-      animation: slideInLeft 1s ease forwards;
-    }
-    
-    .animate-slideRight {
-      opacity: 0;
-      animation: slideInRight 1s ease forwards;
-    }
-    
-    .animate-pulse {
-      animation: pulse 2s infinite;
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 992px) {
-      .about,
-      .contact-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-      
-      .project-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      }
-    }
-    
-    @media (max-width: 768px) {
-      header {
-        padding: 1.5rem;
-      }
-      
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      nav ul {
-        gap: 1rem;
-      }
-      
-      section {
-        padding: 4rem 5%;
-      }
-      
-      .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .hero p {
-        font-size: 1rem;
-      }
-      
-      nav ul {
-        display: none;
-      }
-      
-      .section-title {
-        font-size: 1.5rem;
-      }
-      
-      .stats {
-        grid-template-columns: 1fr;
-      }
-      
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <!-- Preload critical resources -->
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="js/main.js" as="script">
+  <link rel="preload" href="images/favicon.png" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Deferred CSS loading -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
   <header id="header">
-    <img src="favicon.png" class="logo"></img>
+    <img src="images/favicon.png" class="logo" alt="Logo" width="80" height="80">
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -807,10 +33,10 @@
   <section id="home" class="hero">
     <div class="hero-content">
       <h1 class="animate-fadeIn">Hello, I'm</h1>
-      <h1><img src="vaclav.png" style="width: 70%; ;"></img></h1>
-      <p class="animate-fadeIn" style="animation-delay: 0.3s;">Full-Stack Developer & Designer crafting elegant solutions to complex problems</p>
-      <a href="#contact" class="cta-btn animate-fadeIn" style="animation-delay: 0.6s;">Get In Touch</a>
-      <a href="#contact" class="cv-btn animate-fadeIn" style="animation-delay: 0.6s;">Download CV</a>
+      <h1><img src="images/vaclav.png" class="animate-fadeIn" style="width: 70%; animation-delay: 0.2s;" alt="Václav Levý" loading="eager"></h1>
+      <p class="animate-fadeIn" style="animation-delay: 0.2s;">Full-Stack Developer & Graphic Designer crafting elegant solutions to complex problems</p>
+      <a href="#contact" class="cta-btn animate-fadeIn" style="animation-delay: 0.5s;">Get In Touch</a>
+      <a href="#contact" class="cv-btn animate-fadeIn" style="animation-delay: 0.5s;">Download CV</a>
     </div>
   </section>
 
@@ -819,51 +45,87 @@
     <div class="skills-grid">
       <div class="skill-card animate-fadeIn">
         <div class="skill-icon">⚛️</div>
-        <h3>React & Next.js</h3>
-        <p>Building scalable, performant SPAs and server-side rendered applications with the latest React features.</p>
+        <h3>React</h3>
+        <p>Modern UI components and state management.</p>
+      </div>
+      <div class="skill-card animate-fadeIn" style="animation-delay: 0.1s;">
+        <div class="skill-icon">🐍</div>
+        <h3>Django</h3>
+        <p>Python web framework for rapid development.</p>
+      </div>
+      <div class="skill-card animate-fadeIn" style="animation-delay: 0.1s;">
+        <div class="skill-icon">⚡</div>
+        <h3>Next.js</h3>
+        <p>Server-side rendered React applications.</p>
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 0.2s;">
         <div class="skill-icon">🚀</div>
-        <h3>Node.js & Express</h3>
-        <p>Developing robust APIs and backend systems with Node.js ecosystem technologies.</p>
+        <h3>Node.js</h3>
+        <p>JavaScript backend development.</p>
       </div>
-      <div class="skill-card animate-fadeIn" style="animation-delay: 0.4s;">
+      <div class="skill-card animate-fadeIn" style="animation-delay: 0.3s;">
+        <div class="skill-icon">🌐</div>
+        <h3>Express</h3>
+        <p>REST API and server development.</p>
+      </div>
+      <div class="skill-card animate-fadeIn" style="animation-delay: 0.5s;">
         <div class="skill-icon">💾</div>
-        <h3>Django & PostgresSQL</h3>
-        <p>Designing efficient database schemas and optimized queries for both NoSQL and relational databases.</p>
+        <h3>PostgreSQL</h3>
+        <p>Relational database design and optimization.</p>
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 0.6s;">
         <div class="skill-icon">🎨</div>
-        <h3>Tailwind & SCSS</h3>
-        <p>Creating responsive, pixel-perfect designs with modern CSS frameworks and preprocessors.</p>
+        <h3>Tailwind</h3>
+        <p>Utility-first CSS framework implementation.</p>
+      </div>
+      <div class="skill-card animate-fadeIn" style="animation-delay: 0.7s;">
+        <div class="skill-icon">🎭</div>
+        <h3>SCSS</h3>
+        <p>Advanced CSS preprocessing and organization.</p>
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 0.8s;">
         <div class="skill-icon">🛒</div>
-        <h3>Wordpress & WooCommerce</h3>
-        <p>Building modern cross-platform e-commerce web pages with a content management system.</p>
+        <h3>WordPress</h3>
+        <p>CMS-based website development.</p>
       </div>
-      <div class="skill-card animate-fadeIn" style="animation-delay: 1s;">
-        <div class="skill-icon">🔄</div>
-        <h3>Photoshop & Illustrator</h3>
-        <p>Desinging ambtitious concepts and mockups for a clearer development path.</p>
+      <div class="skill-card animate-fadeIn" style="animation-delay: 1.0s;">
+        <div class="skill-icon">🎭</div>
+        <h3>Photoshop</h3>
+        <p>Image editing and visual design.</p>
+      </div>
+      <div class="skill-card animate-fadeIn" style="animation-delay: 1.1s;">
+        <div class="skill-icon">✒️</div>
+        <h3>Illustrator</h3>
+        <p>Vector graphics and logo design.</p>
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 1.2s;">
         <div class="skill-icon">🧪</div>
-        <h3>Jest & Testing Library</h3>
-        <p>Writing comprehensive test suites to ensure code quality and prevent regressions.</p>
+        <h3>Jest</h3>
+        <p>JavaScript testing and mocking.</p>
+      </div>
+      <div class="skill-card animate-fadeIn" style="animation-delay: 1.3s;">
+        <div class="skill-icon">🔍</div>
+        <h3>Testing Library</h3>
+        <p>User-centric application testing.</p>
       </div>
       <div class="skill-card animate-fadeIn" style="animation-delay: 1.4s;">
         <div class="skill-icon">🔐</div>
         <h3>TypeScript</h3>
-        <p>Building type-safe applications with enhanced developer experience and fewer runtime bugs.</p>
+        <p>Type-safe JavaScript development.</p>
       </div>
+    </div>
+    
+    <div class="show-more-container">
+      <button id="show-more-skills" class="show-more-btn animate-fadeIn" style="animation-delay: 0.8s;">
+        Show More <span class="arrow-down">↓</span>
+      </button>
     </div>
   </section>
 
   <section id="about">
     <div class="about">
       <div class="about-img animate-slideLeft">
-        <img src="osobni.png" alt="Václav Levý">
+        <img src="images/osobni.png" alt="Václav Levý" width="600" height="400" loading="lazy">
       </div>
       <div class="about-content animate-slideRight">
         <h2 class="section-title">About Me</h2>
@@ -894,7 +156,7 @@
     <div class="project-grid">
       <div class="project-card animate-fadeIn">
         <div class="project-img">
-          <img src="adventuresport.png" alt="Project 1">
+          <img src="images/adventuresport.png" alt="Adventure Sport Project" width="350" height="200" loading="lazy">
         </div>
         <div class="project-content">
           <h3 class="project-title">Adventure Sport</h3>
@@ -903,14 +165,14 @@
           </div>
           <p class="project-desc">E-commerce website for an independent organization specialized in aiding the hard of hearing with outdoor activities and workshops.</p>
           <div class="project-links">
-            <a href="https://adventuresport.cz/" class="project-link">View Live</a>
+            <a href="https://adventuresport.cz/" target="_blank" rel="noopener" class="project-link">View Live</a>
           </div>
         </div>
       </div>
       
       <div class="project-card animate-fadeIn" style="animation-delay: 0.3s;">
         <div class="project-img">
-          <img src="h4bit.png" alt="Project 2">
+          <img src="images/h4bit.png" alt="H4B.IT Project" width="350" height="200" loading="lazy">
         </div>
         <div class="project-content">
           <h3 class="project-title">H4B.IT Habit Tracker</h3>
@@ -921,14 +183,14 @@
           </div>
           <p class="project-desc">Fully deployed habit tracker created to be the pinnacle of my coding course. However the free trial italian domain expired.</p>
           <div class="project-links">
-            <a href="#" class="project-link">GitHub</a>
+            <a href="https://github.com/RCSV159" target="_blank" rel="noopener" class="project-link">GitHub</a>
           </div>
         </div>
       </div>
       
       <div class="project-card animate-fadeIn" style="animation-delay: 0.6s;">
         <div class="project-img">
-          <img src="bestostrava.png" alt="Project 3">
+          <img src="images/bestostrava.png" alt="Best Ostrava Project" width="350" height="200" loading="lazy">
         </div>
         <div class="project-content">
           <h3 class="project-title">Best Ostrava</h3>
@@ -937,7 +199,7 @@
           </div>
           <p class="project-desc">Informational and e-commerce website for a firm focused on deep-cleaning and high tech wood impregrnation.</p>
           <div class="project-links">
-            <a href="https://www.bestostrava.cz/#" class="project-link">View Live</a>
+            <a href="https://www.bestostrava.cz/#" target="_blank" rel="noopener" class="project-link">View Live</a>
           </div>
         </div>
       </div>
@@ -972,8 +234,8 @@
       </div>
     </div>
     <div class="testimonial-controls">
-      <button class="testimonial-btn" id="prev-testimonial">←</button>
-      <button class="testimonial-btn" id="next-testimonial">→</button>
+      <button class="testimonial-btn" id="prev-testimonial" aria-label="Previous testimonial">←</button>
+      <button class="testimonial-btn" id="next-testimonial" aria-label="Next testimonial">→</button>
     </div>
   </section>
   
@@ -984,7 +246,7 @@
         <h3>Let's work together</h3>
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
-          <div class="contact-text" ><a href="mailto:xbrudda.osas@gmail.com">xbrudda.osas@gmail.com</a></div>
+          <div class="contact-text"><a href="mailto:xbrudda.osas@gmail.com">xbrudda.osas@gmail.com</a></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📍</div>
@@ -1017,16 +279,16 @@
   <footer>
     <div class="footer-content">
       <div class="social-links">
-        <a href="#" class="social-link">
+        <a href="#" class="social-link" aria-label="GitHub">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.068-.608.068-.608 1.003.07 1.532 1.03 1.532 1.03.89 1.527 2.336 1.086 2.904.83.092-.647.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.09.39-1.984 1.03-2.682-.103-.253-.447-1.27.097-2.646 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.376.202 2.394.1 2.646.64.699 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.577.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path></svg>
         </a>
-        <a href="#" class="social-link">
+        <a href="#" class="social-link" aria-label="LinkedIn">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg>
         </a>
-        <a href="#" class="social-link">
+        <a href="#" class="social-link" aria-label="Twitter">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg>
         </a>
-        <a href="#" class="social-link">
+        <a href="https://github.com/RCSV159" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.25a1.25 1.25 0 0 1-2.5 0 1.25 1.25 0 0 1 2.5 0zM12 4c-2.474 0-2.878.007-3.879.056-.998.05-1.68.205-2.277.418A4.002 4.002 0 0 0 2.68 7.77c-.213.598-.368 1.28-.417 2.278C2.214 11.073 2.207 11.477 2.207 14c0 2.474.007 2.878.056 3.879.05.998.205 1.68.418 2.277a4.002 4.002 0 0 0 3.167 3.167c.597.213 1.279.368 2.277.417.981.05 1.393.056 3.869.056 2.474 0 2.878-.007 3.879-.056.998-.05 1.68-.205 2.277-.418a4.002 4.002 0 0 0 3.167-3.166c.213-.597.368-1.28.417-2.278.05-.981.056-1.393.056-3.869 0-2.474-.007-2.878-.056-3.879-.05-.998-.204-1.68-.417-2.277a4.002 4.002 0 0 0-3.167-3.167c-.597-.213-1.28-.368-2.277-.417-.981-.05-1.393-.056-3.869-.056zm0-2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.884 4.884 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 17.056 2.002 16.717 2.002 14c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 4.525c.638-.248 1.362-.415 2.428-.465C8.944 4.01 9.283 4 12 4z"></path></svg>
         </a>
       </div>
@@ -1034,157 +296,7 @@
     </div>
   </footer>
   
-  <script>
-
-    // Scroll header effect
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }); 
-    
-    // Animated counter
-    function animateCounters() {
-      const counters = document.querySelectorAll('.stat-number');
-      const speed = 200;
-      
-      counters.forEach(counter => {
-        const targetValue = parseFloat(counter.textContent);
-        let currentValue = 0;
-        
-        // Remove the "+" if present to get a clean number
-        const cleanValue = targetValue.toString().replace('+', '');
-        const increment = parseFloat(cleanValue) / speed;
-        
-        const updateCounter = () => {
-          if (currentValue < parseFloat(cleanValue)) {
-            currentValue += increment;
-            counter.textContent = Math.ceil(currentValue) + (targetValue.toString().includes('+') ? '+' : '');
-            setTimeout(updateCounter, 1);
-          } else {
-            counter.textContent = targetValue;
-          }
-        };
-        
-        updateCounter();
-      });
-    }
-    
-    // Animate elements on scroll
-    const animatedElements = document.querySelectorAll('.animate-fadeIn, .animate-slideLeft, .animate-slideRight');
-    
-    const checkIfInView = () => {
-    const windowHeight = window.innerHeight;
-    const windowTop = window.scrollY;
-    const windowBottom = windowTop + windowHeight;
-    
-    // Handle animated elements
-    animatedElements.forEach(element => {
-      const elementTop = element.getBoundingClientRect().top + windowTop;
-      const elementBottom = elementTop + element.offsetHeight;
-      
-      if (elementTop <= windowBottom - 100 && elementBottom >= windowTop) {
-        element.style.animationDelay = element.getAttribute('style') ? element.getAttribute('style').replace('animation-delay: ', '') : '0s';
-        element.style.animationPlayState = 'running';
-      } else {
-        element.style.animationPlayState = 'paused';
-      }
-    });
-    
-    // Handle section titles
-    document.querySelectorAll('.section-title').forEach(title => {
-      const titleTop = title.getBoundingClientRect().top + windowTop;
-      
-      if (titleTop <= windowBottom - 100) {
-        title.classList.add('visible');
-      }
-    });
-  };
-    
-    // Testimonial slider
-    const testimonialsSlider = document.getElementById('testimonials-slider');
-    const prevBtn = document.getElementById('prev-testimonial');
-    const nextBtn = document.getElementById('next-testimonial');
-    let currentSlide = 0;
-    const totalSlides = document.querySelectorAll('.testimonial').length;
-    
-    const goToSlide = (slideIndex) => {
-      if (slideIndex < 0) {
-        currentSlide = totalSlides - 1;
-      } else if (slideIndex >= totalSlides) {
-        currentSlide = 0;
-      } else {
-        currentSlide = slideIndex;
-      }
-      
-      testimonialsSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
-    };
-    
-    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-    
-    // Auto-slide testimonials
-    setInterval(() => {
-      goToSlide(currentSlide + 1);
-    }, 5000);
-    
-    // Initialize animations when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      checkIfInView();
-      window.addEventListener('scroll', checkIfInView);
-      
-      // Run counter animations when about section is in view
-      const aboutSection = document.getElementById('about');
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounters();
-            observer.unobserve(entry.target);
-          }
-        });
-      });
-      
-      observer.observe(aboutSection);
-      
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          
-          window.scrollTo({
-            top: targetElement.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        });
-      });
-      
-      // Form submission handling
-      const contactForm = document.querySelector('.contact-form');
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Simulate form submission
-        const submitBtn = contactForm.querySelector('.submit-btn');
-        submitBtn.textContent = 'Sending...';
-        
-        setTimeout(() => {
-          submitBtn.textContent = 'Not yet implemented!';
-          window.location.href = "mailto:studiopvppro@gmail.org";
-          contactForm.reset();
-          
-          setTimeout(() => {
-            submitBtn.textContent = 'Send Message';
-          }, 3000);
-        }, 1500);
-      });
-    });
-  </script>
-  <script type="module" src="/main.js"></script>
-  </body>
-  </html>
+  <!-- Defer JS loading -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
